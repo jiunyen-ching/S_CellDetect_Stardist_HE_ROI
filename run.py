@@ -39,7 +39,8 @@ __author__ = "Maree Raphael <raphael.maree@uliege.be>"
 def main(argv):
     with CytomineJob.from_cli(argv) as conn:
         conn.job.update(status=Job.RUNNING, progress=0, statusComment="Initialization...")
-        base_path = "{}".format(os.getenv("HOME")) # Mandatory for Singularity
+        # base_path = "{}".format(os.getenv("HOME")) # Mandatory for Singularity
+        base_path = "/home/mmu/Desktop"
         working_path = os.path.join(base_path,str(conn.job.id))
         
         #Loading pre-trained Stardist model
